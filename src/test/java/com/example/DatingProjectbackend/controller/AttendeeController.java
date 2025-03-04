@@ -30,10 +30,32 @@ public class AttendeeController {
     }
 
     @GetMapping("{id}")
-    // Build get Employee Rest API
+    // Build get Attendee Rest API
     public ResponseEntity<AttendeeDto> getAttendeeById(@PathVariable("id") Long attendeeId){
         AttendeeDto attendeeDto = attendeeService.getAttendeeById(attendeeId);
         return ResponseEntity.ok(attendeeDto);
+    }
+
+    // Build Get All Attendees REST API
+    @GetMapping
+    public ResponseEntity<List<AttendeeDto>> getAllAttendees(){
+        List<AttendeeDto> attendees = attendeeService.getAllAttendees();
+        return ResponseEntity.ok(attendees);
+    }
+
+    // Build Update Attendee details REST API
+    @PutMapping("{id}")
+    public ResponseEntity<AttendeeDto> updateAttendee(@PathVariable("id") Long attendeeId,
+                                                      @RequestBody AttendeeDto updatedAttendee){
+        AttendeeDto AttendeeDto = attendeeService.updateAttendee(attendeeId, updatedAttendee);
+        return ResponseEntity.ok(AttendeeDto);
+    }
+
+    // Build Delete Attendee REST API
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteAttendee(@PathVariable("id") Long attendeeId){
+        attendeeService.deleteAttendee(attendeeId);
+        return ResponseEntity.ok("Attendee deleted successfully!.");
     }
 
 }

@@ -8,4 +8,10 @@ public interface AttendeeService {
     AttendeeDto createAttendee(AttendeeDto attendeeDto);
     List<AttendeeDto> createmanyAttendees(List <AttendeeDto> attendeeDtos);
     AttendeeDto getAttendeeById(Long attendeeId);
+
+    List<AttendeeDto> getAllAttendees();
+    AttendeeDto updateAttendee(Long attendeeId, AttendeeDto attendeeDto);
+
+   void deleteAttendee(Long attendeeId);
+
 }
