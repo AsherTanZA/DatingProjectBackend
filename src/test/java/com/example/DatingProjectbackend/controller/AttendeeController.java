@@ -5,10 +5,7 @@ import com.example.DatingProjectbackend.service.AttendeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,13 @@ public class AttendeeController {
     public ResponseEntity<List<AttendeeDto>> addUsers(@RequestBody List<AttendeeDto> attendeeDtos) {
         List<AttendeeDto> savedAttendees = attendeeService.createmanyAttendees(attendeeDtos);
         return new ResponseEntity<>(savedAttendees, HttpStatus.CREATED);
+    }
+
+    @GetMapping("{id}")
+    // Build get Employee Rest API
+    public ResponseEntity<AttendeeDto> getAttendeeById(@PathVariable("id") Long attendeeId){
+        AttendeeDto attendeeDto = attendeeService.getAttendeeById(attendeeId);
+        return ResponseEntity.ok(attendeeDto);
     }
 
 }

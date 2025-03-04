@@ -2,6 +2,7 @@ package com.example.DatingProjectbackend.service.impl;
 
 import com.example.DatingProjectbackend.dto.AttendeeDto;
 import com.example.DatingProjectbackend.entity.Attendee;
+import com.example.DatingProjectbackend.exception.ResourceNotFoundException;
 import com.example.DatingProjectbackend.mapper.AttendeeMapper;
 import com.example.DatingProjectbackend.repository.AttendeeRepository;
 import com.example.DatingProjectbackend.service.AttendeeService;
@@ -45,6 +46,14 @@ public class AttendeeServiceImpl implements AttendeeService {
 
         return savedAttendeesDto;
 
+    }
+
+    @Override
+    public AttendeeDto getAttendeeById(Long attendeeId) {
+        Attendee attendee = attendeeRepository.findById(attendeeId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Attendee/Participant does not exists with given id : " +attendeeId));
+        return AttendeeMapper.mapToAttendeeDto(attendee);
     }
 
 }
