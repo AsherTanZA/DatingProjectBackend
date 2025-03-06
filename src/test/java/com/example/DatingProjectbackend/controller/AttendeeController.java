@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/attendees")
@@ -17,7 +18,7 @@ public class AttendeeController {
     private AttendeeService attendeeService;
 
     // Build Add Attendee Resty API
-    @PostMapping("/add")
+    @PostMapping("/add-one")
     public ResponseEntity <AttendeeDto> createAttendee(@RequestBody AttendeeDto attendeeDto){
         AttendeeDto savedAttendee = attendeeService.createAttendee(attendeeDto);
         return new ResponseEntity<>(savedAttendee, HttpStatus.CREATED);
