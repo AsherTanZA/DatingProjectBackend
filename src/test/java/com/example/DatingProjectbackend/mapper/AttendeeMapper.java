@@ -27,8 +27,7 @@ public class AttendeeMapper {
                 attendeeDto.getGender(),
                 attendeeDto.getHobbies(),
                 attendeeDto.getLoveLanguage(),
-                attendeeDto.getPersonalityType(),
-                "defaultPassword123"
+                attendeeDto.getPersonalityType()
         );
     }
 }

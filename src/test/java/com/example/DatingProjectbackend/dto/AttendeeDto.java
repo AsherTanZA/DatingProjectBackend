@@ -2,6 +2,7 @@ package com.example.DatingProjectbackend.dto;
 
 import com.example.DatingProjectbackend.entity.Gender;
 import com.example.DatingProjectbackend.entity.Lovelanguage;
+import com.example.DatingProjectbackend.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -19,8 +19,9 @@ import java.util.List;
 
 public class Attendee {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
 
     @Column(name = "first_name")
     private String firstName;
@@ -47,8 +48,5 @@ public class Attendee {
     @Column(name = "personality_type")
     private String personalityType;
 
-    @JsonIgnore
-    @Column(name = "password", nullable = false)
-    private String password;
 
 }
